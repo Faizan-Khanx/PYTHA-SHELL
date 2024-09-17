@@ -3,11 +3,6 @@
 
 **PYTHA-SHELL** is an advanced Python shell environment designed to provide a comprehensive and interactive experience for Python developers. It offers a rich set of features for executing code, debugging, and exploring Python scripts in a flexible and customizable interface.
 
-
-Got it! Here’s the table with the feature descriptions organized:
-
-Sure! Here’s the updated README.md file content with all features included in both tables:
-
 ### Key Features Table
 
 | Feature                 | Description                                          |
