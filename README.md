@@ -1,8 +1,9 @@
 
 # PYTHA-SHELL - Advanced Python Shell Environment
-![pyytha](https://github.com/user-attachments/assets/90ce266c-7eb4-4f6d-b71a-1a8c0a895b8f)
 
-**PYTHA-SHELL** is an advanced Python shell environment designed to provide a comprehensive and interactive experience for Python developers. It offers a rich set of features for executing code, debugging, and exploring Python scripts in a flexible and customizable interface.
+**PYTHA-SHELL** is a versatile cybersecurity tool designed for educational purposes, featuring an RCE (Remote Code Execution) mode. This tool allows users to explore and understand various attacks and vulnerabilities in a controlled environment. PYTHA-SHELL includes practical examples and demonstrations to help learners grasp the concepts of remote code execution and other security risks. Ideal for students, educators, and cybersecurity enthusiasts, PYTHA-SHELL aims to provide hands-on experience with real-world vulnerabilities and attacks in a safe and controlled setting.PYTHA-SHELL helps users gain practical experience in a secure environment ,making it a valuable asset for both learning and teaching.
+
+![pyytha](https://github.com/user-attachments/assets/90ce266c-7eb4-4f6d-b71a-1a8c0a895b8f)
 
 ### Key Features Table
 
