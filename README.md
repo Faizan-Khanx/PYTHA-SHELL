@@ -286,7 +286,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-FAIZAN-NET is developed by **Faizan Khan**.
+PYTHA-SHELL is developed by **Faizan Khan**.
 
 - **GitHub**: [Faizan-Khanx](https://github.com/Faizan-Khanx)
 - **Instagram**: [@EthicalFaizan](https://instagram.com/EthicalFaizan)
