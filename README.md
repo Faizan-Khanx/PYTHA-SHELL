@@ -561,7 +561,7 @@ python main_server.py -p <port> ``` #On Same Port You Use While Making The Paylo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 ## Author
 
