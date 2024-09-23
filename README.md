@@ -44,7 +44,7 @@ pip install prompt_toolkit
 git clone https://github.com/Faizan-Khanx/PYTHA-SHELL.git
 cd PYTHA-SHELL
 pip install -r requirements.txt
-cd src
+cd PYTHA
 python PythaShell.py -h
 ```
 
